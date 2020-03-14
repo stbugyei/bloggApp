@@ -1,40 +1,19 @@
-import React, { Component } from "react";
-//import PropTypes from "prop-types";
+//import React, { Component } from "react";
+import React from 'react'
+import { Link } from "react-router-dom";
 
-export class TodoItem extends Component {
-
-  render() {
-
-    const { id, title, category } = this.props.post;
-    return (
-      
-      <div className='card_content'>
-            <div className='card_content_item'>Title: {title}</div> 
-            <div className='card_content_item'>Category: {category}</div>       
-        <div className='card_content_item'>
-          <button className='btn'
-            onClick={this.props.delPost.bind(this, id)} >
-            {" "}
-            Delete{" "}
-            </button>
-          </div>
-        </div>
-    );
-  }
+const PostItem = ({ id, title, category }) => {
+   
+ return (
+    <div>
+        <div className='card_content'>
+        <Link style={{color:'indigo', fontSize:'30px'}} to={`/post/${id}`}className='card_content-item'>{title}</Link>
+       <div className='card_content-item'>Category: {category}</div>
+      </div>
+    </div>
+  )
 }
 
-/* <input className='css-checkbox' id='item'
-            type="checkbox"
-            onChange={this.props.checkCompleted.bind(this, id)}
-          />{" "}<label className = 'css-label' htmlFor="item">{title}</label>
-         {" "}*/
-
-//======== creating propTypes==============
-/*TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired,
-  checkCompleted: PropTypes.func.isRequired,
-  delTodo: PropTypes.func.isRequired
-};*/
+export default PostItem
 
 
-export default TodoItem;

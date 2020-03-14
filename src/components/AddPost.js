@@ -48,7 +48,7 @@ export class AddPost extends Component {
                                     <div>
                                         <input
                                             type="text"
-                                            id=""
+                                            id="title"
                                             name='title'
                                             placeholder="+ Title"
                                             value={this.state.title}
@@ -59,7 +59,7 @@ export class AddPost extends Component {
                                     <div>
                                         <input
                                             type="text"
-                                            id=""
+                                            id="category"
                                             name='category'
                                             placeholder="+ Category"
                                             value={this.state.category}
@@ -68,7 +68,7 @@ export class AddPost extends Component {
                                         </input>
                                     </div>                            
                                     <div>
-                                        <textarea id=""
+                                        <textarea id="content"
                                             name='content'
                                             placeholder="+ Content"
                                             value={this.state.content}
@@ -106,4 +106,4 @@ AddPost.propTypes = {
 };
 
 
-export default withRouter(AddPost);
+export default withRouter (AddPost);
