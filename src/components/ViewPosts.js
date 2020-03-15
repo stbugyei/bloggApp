@@ -23,6 +23,13 @@ const ViewPost = ({ articles, id, delPost}) => {
                             Back to posts
                         </button>
                     </Link>
+                    <Link to={`/post/edit/:id`}>
+                                <button className='btn'
+                                >
+                                    {" "}
+                                    Edit{" "}
+                                </button>
+                            </Link>
                     <Link to='/Post'>
                         <button className='btn'
                             onClick={() => delPost(id)}

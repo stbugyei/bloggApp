@@ -4,18 +4,17 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 
 
-export class AddPost extends Component {
-    state = {
+export class EditPost extends Component {
+      state = {
         title: "",
         category: "",
         content: ""
-
     };
-
 
     static contextTypes = {
         router: PropTypes.object
     }
+
     //========= An onSubmit event for submitting the state(articles)=========
     onSubmit = e => {
         e.preventDefault();
@@ -37,20 +36,21 @@ export class AddPost extends Component {
 
 
     render() {
+
         return (
             <div className="head">
                 <div className="container">
                     <form>
                         <div className="form_content">
                             <div className="fieldset_content">
-                            <h1>Add New Post</h1>
+                                <h1>Edit Post</h1>
                                 <div className="Search_Submit">
                                     <div>
                                         <input
                                             type="text"
                                             id="title"
                                             name='title'
-                                            placeholder="+ Title"
+                                            placeholder="Edit Title"
                                             value={this.state.title}
                                             onChange={this.onChange}
                                         >
@@ -61,36 +61,36 @@ export class AddPost extends Component {
                                             type="text"
                                             id="category"
                                             name='category'
-                                            placeholder="+ Category"
+                                            placeholder=" Edit Category"
                                             value={this.state.category}
                                             onChange={this.onChange}
                                         >
                                         </input>
-                                    </div>                            
+                                    </div>
                                     <div>
                                         <textarea id="content"
                                             name='content'
-                                            placeholder="+ Content"
+                                            placeholder="Edit Content"
                                             value={this.state.content}
                                             onChange={this.onChange} cols="50" rows="10"></textarea>
                                     </div>
-                                    <div className ='buttons'>
-                                    <div>
-                                        <button className='btn'
-                                            onClick={this.onSubmit}>
-                                            Save Post
+                                    <div className='buttons'>
+                                        <div>
+                                            <button className='btn'
+                                                onClick={this.onSubmit}>
+                                                Save Post
                                         </button>
-                                    </div>  
-                                     <div>
-                                        <Link to='/Post'>
-                                            <button className='btn'>
-                                                Cancel
+                                        </div>
+                                        <div>
+                                            <Link to='/Post'>
+                                                <button className='btn'>
+                                                    Cancel
                                                 </button>
-                                        </Link>
+                                            </Link>
+                                        </div>
                                     </div>
-                                    </div>
-                                    
-                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -101,9 +101,9 @@ export class AddPost extends Component {
 }
 
 //=========== creating propTypes ===========
-AddPost.propTypes = {
-    AddPost: PropTypes.func
+EditPost.propTypes = {
+    EditPost: PropTypes.func
 };
 
 
-export default withRouter (AddPost);
+export default withRouter(EditPost);

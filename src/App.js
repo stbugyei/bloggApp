@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Post from "./components/Post";
 import AddPost from "./components/AddPost";
+import EditPost from "./components/EditPost";
 import About from "./components/About";
 import "./App.css";
 import uuid from "uuid";
@@ -48,6 +49,25 @@ class App extends Component {
   };
 
 
+    //==========Function to editPost =======
+  
+    getPostDetails = (title, category, content) =>{
+      let id = this.props.match.params.id;
+      const articles = this.state.articles;
+      articles.map(post => {
+       if (post.id === id) {
+          post.title = title;
+          post.category = category;
+          post.content = content; 
+          }
+          return post.id === id
+      })
+      this.setState({
+          articles: articles
+      })
+    }
+
+
   //==========Function to delete deletepost ========
   delPost = id => {
     this.setState({
@@ -59,10 +79,11 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+    
         <div className='head'>
           <div className='container'>
-            <div className='wrapper'>
+          <div className='wrapper'>
+          <Router>
               <Header />   
               <Route
                 exact
@@ -76,15 +97,21 @@ class App extends Component {
                 path="/AddPost"
                 render={() => <AddPost {...this.props} addNewPost={this.addNewPost} Redirect to="/Post" />}
               /> 
+                <Route
+                exact
+                path={`/post/edit/:id`}
+                render={(props) => <EditPost {...this.props}  articles={this.state.articles} {...this.state} id={props.match.params.id} delPost = {this.delPost} addNewPost={this.addNewPost} Redirect to="/Post" />}
+              /> 
               <Route exact path={`/post/:id`} render={(props) => {
-                return <ViewPost articles={this.state.articles} {...this.props} {...this.state.articles} id={props.match.params.id} delPost = {this.delPost} 
-              />}
+                return <ViewPost articles={this.state.articles} {...this.props} id={props.match.params.id} delPost={this.delPost}
+                  onChange={this.onChange} getPostDetails={this.getPostDetails}/>}
             }  
-          />
+              />
+              </Router >
             </div>
           </div>
         </div>
-      </Router >
+      
     );
   }
 }
