@@ -81,7 +81,7 @@ text-decoration: none;
 
 .post{
   font-family: serif;
-  margin: 15px 400px;
+  margin: 15px 200px;
   font-size: 1.0rem;
   text-align: left;
   margin-bottom: 30px;
@@ -101,18 +101,29 @@ text-decoration: none;
 
 .card_content{
   font-size: 25px;
-  margin: 5px 10px;
+  margin: -10px 10px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-evenly;
+ /* flex-direction: column;*/
+  justify-content: space-between;
 }
+
+.card_content-category{
+  display: flex
+}
+
+.card_content-category-text{
+  font-size: 25px;
+  margin-left: 9px;
+}
+
 
 .card_content-item{
   display: flex;
   justify-content: center;
-  margin: 5px;
+  margin: 15px;
 }
+
 
 /*.Todo:hover {
 transform: scale(1.1);
@@ -154,6 +165,8 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
 
 .Search_Submit {
+  display: flex;
+  justify-content: center;
   width: 50%;
   padding:50px 0px;
   margin: 26px 10px 16px 11px;
@@ -216,18 +229,18 @@ font-size: 28px;
 /*================Buttons==============*/
 
 .btnStyle {
-font-size: 15px;
-width: 60px;
-margin-left: 10px;
-height: 7vh;
-background: #ff0000;
-color: white;
-border: none;
-padding: 5px 10px;
-border-radius: 50%;
-cursor: pointer;
-/*float: right;*/
-box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
+  font-size: 15px;
+  /* width: 60px; */
+  margin-left: 25px;
+  /* height: 7vh; */
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding:7px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* float: right; */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 };
 
 .button-container {
@@ -244,7 +257,6 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 .buttons{
   margin: 10px;
   padding: 1px;
-  width: 73%;
   display: flex;
   justify-content: flex-end;
 }
@@ -262,7 +274,19 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
   text-decoration: none;
   width: 150px;
 }
-
+.btns {
+  border: 1px solid indigo;
+  color: indigo;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Trebuchet MS;
+  font-size: 20px;
+  padding: 6px 9px;
+  margin-right: 10px;
+  text-decoration: none;
+  width: 100px;
+}
 .btn:hover{
   position: relative;
   top: 1px;
@@ -311,7 +335,7 @@ input[type=text], select {
   border-left: none;
   border-right: none;
   font-size: 18px;
-  margin: 0px 0px 45px 62px;
+  margin: 0px 0px 25px 0px;
   width: 535px;
   padding: 15px;
   border-radius: 10px;
@@ -329,7 +353,7 @@ select:focus {
 textarea {
   font-size: 20px;
   border: 2px solid indigo;
-  margin: 0px 0px 25px 62px;
+  margin: 0px 0px 25px 0px;
   padding: 14px 12px;
   height: 306px;
   border-radius: 3px;

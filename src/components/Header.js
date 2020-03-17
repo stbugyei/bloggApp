@@ -7,8 +7,7 @@ function Header() {
         <div className="head">
             <div className="container">
                 <div className='banner_wrapper'>
-
-                    <header className="banner">
+                    <div className="banner">
                         <div className='banner_text'> Articles & Blog Posts</div>
                         <div className='banner_link'>
                             <Link className="headerLink" to="/Post">
@@ -23,10 +22,10 @@ function Header() {
                                  
                              Add Post
                                 </Link>{" "}
-                          
+                        
                         </div>
                         <SocialMedia />
-                    </header>
+                    </div>
 
                 </div>
             </div>
