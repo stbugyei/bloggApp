@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 
-const ViewPost = ({ articles, id, delPost, editPost }) => {
+const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
 
-    const PostFiltered = articles.filter(post => post.id === id);
+    const PostFiltered = articles.find(post => post.id === id);
 
-    const { title, category, content } = PostFiltered[0]
+    const { title, category, content } = PostFiltered
 
     return (
         <div className='container'>
@@ -25,7 +25,7 @@ const ViewPost = ({ articles, id, delPost, editPost }) => {
                     <Link to={`/post/edit/${id}`}>
                         <button className='btn'
                          value={id}
-                            onClick={() => editPost()}
+                            onClick={(id) => editPost(id)}
                         >
                             {" "}
                         Edit{" "}

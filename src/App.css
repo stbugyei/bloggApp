@@ -17,7 +17,7 @@ font-family: sans-serif;
   flex-direction: column;
   flex: 1;
   min-height: auto;
-  background: #f9f9ff;
+  background:#ECEFF1;
 }
 
 .container {
@@ -31,13 +31,14 @@ a {
 }
 
 .banner_wrapper{
+padding: 25px 0px;
 margin-bottom: 15px;
 width: 100%;
 display: flex;
-justify-content: center;
-border-radius:10px;
-background: linear-gradient(90deg, rgb(219, 218, 228) 0%, rgb(220, 225, 226) 0%,  rgb(240, 243, 243)  45%, rgb(216, 223, 223) 72%);
-
+flex-direction: row;
+justify-content: space-between;
+background:white;
+box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
 
 .banner_image{
@@ -57,20 +58,24 @@ font-size: 25px;
 text-align: center;
 margin-bottom: 15px;
 margin-right: -90px;
-
 }
 
 .banner_text{
-font-size: 50px;
+width: 95%;
+font-size: 30px;
 padding: 10px;
 color: indigo;
 display: flex;
 justify-content: center;
-font-family: monospace;
+font-family: 'Trebuchet MS';
 }
 
 .banner_link{
-  padding-bottom: 25px; 
+  color: rgb(214, 38, 38);
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 15px;
 }
 
 .headerLink{
@@ -81,7 +86,7 @@ text-decoration: none;
 
 .post{
   font-family: serif;
-  margin: 15px 200px;
+  margin: 0px 200px;
   font-size: 1.0rem;
   text-align: left;
   margin-bottom: 30px;
@@ -90,7 +95,7 @@ text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color:  0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
+  background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
   transition: all 0.5s ease;
 }
@@ -113,6 +118,7 @@ text-decoration: none;
 }
 
 .card_content-category-text{
+  color: indigo;
   font-size: 25px;
   margin-left: 9px;
 }
@@ -165,7 +171,6 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
 
 .Search_Submit {
-  display: flex;
   justify-content: center;
   width: 50%;
   padding:50px 0px;
@@ -176,6 +181,7 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
@@ -205,7 +211,6 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 
 .post-title{
   font-size: 35px;
-  padding: 15px 0;
 }
 
 .post-catagory{
@@ -229,25 +234,27 @@ font-size: 28px;
 /*================Buttons==============*/
 
 .btnStyle {
-  font-size: 15px;
-  /* width: 60px; */
+  border: 1px solid;
+  font-size: 15px; font-weight: bold;
   margin-left: 25px;
-  /* height: 7vh; */
-  background: #ff0000;
-  color: white;
-  border: none;
-  padding:7px 10px;
+  background: white;
+  color: red;
   border-radius: 50%;
+  padding:6px 10px;
   cursor: pointer;
-  /* float: right; */
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
-};
+}
+
+.btn-title_wrapper{
+ display: flex
+}
 
 .button-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .button-post {
   padding: 0 50px;
   display: flex;
@@ -259,6 +266,22 @@ font-size: 28px;
   padding: 1px;
   display: flex;
   justify-content: flex-end;
+}
+
+.buttons-wrapper{
+  margin-left: 15px;
+  width: 200px;
+  padding: 4px;
+  background: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
+}
+
+.buttons-wrapper:hover, .btnsub-right:hover{
+  background: #F4D03F;
+  color: white;
 }
 
 .btn {
@@ -273,20 +296,63 @@ font-size: 28px;
   margin-right: 10px;
   text-decoration: none;
   width: 150px;
+  background: white;
+  outline: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
+
 .btns {
-  border: 1px solid indigo;
-  color: indigo;
-  border-radius: 3px;
+  border-radius: 8px;
+  border: 1px solid;
+  color: red;
   display: inline-block;
   cursor: pointer;
   font-family: Trebuchet MS;
-  font-size: 20px;
-  padding: 6px 9px;
-  margin-right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px 9px;
   text-decoration: none;
-  width: 100px;
+  width: 150px;
+  background: white;
+  outline: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
+
+.btnsub-left {
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 30px;
+  text-decoration: none;
+  width: 40px;
+  border-radius: 50%;
+  background: red;
+  border: 1px solid;
+  outline: none;
+}
+
+
+.btnsub-right {
+  color: red;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-decoration: none;
+  background: white;
+  width: 161px;
+  border: none;
+  border-radius: 22px;
+  outline: none;
+}
+
+.home_img{
+  width: 21px;
+ filter: invert();
+ /*filter:invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);*/
+}
+
 .btn:hover{
   position: relative;
   top: 1px;
@@ -478,12 +544,11 @@ width: 30px;
 }
 
 .icon_group {
-position: relative;
-width: 15%;
-display: flex;
-justify-content: space-between;
-margin: 0px 25px 0px 217px;
-
+  position: relative;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  margin: 19px 0px 0px 97px;
 }
 
 .twitter:hover,

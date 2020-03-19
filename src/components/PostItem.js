@@ -21,7 +21,19 @@ const PostItem = ({ id, title, category, delPost, getPostDetails, editPost }) =>
         </div>
       </div>
       <div className='card_content'>
-        <Link style={{ color: 'indigo', fontSize: '30px' }} to={`/post/${id}`} className='card_content-item'> {title}</Link>
+        <div className='btn-title_wrapper'>
+        <Link to={`/post/${id}`}>
+            <button style={btnTitle}
+              value={id}
+            > T
+              {" "}
+            </button>
+          </Link>
+          <Link style={{ color: 'indigo', fontSize: '25px' }}
+          to={`/post/${id}`} className='card_content-item'>
+          {title}
+        </Link>
+        </div>
         <div className='card_content-item'>
           <Link to={`/post/${id}`}>
             <button className='btns'
@@ -40,3 +52,15 @@ const PostItem = ({ id, title, category, delPost, getPostDetails, editPost }) =>
 export default PostItem
 
 
+const btnTitle = {
+  border:'1px solid',
+  fontSize:' 15px',
+  fontWeight: 'bold',
+  margin: '19px -3px 0px 15px',
+  background:'white',
+  color: 'red',
+  borderRadius:'50%',
+  padding: '6px 10px',
+  cursor: 'pointer',
+  boxShadow: '0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23)'
+}

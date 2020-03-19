@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
+import SocialMedia from "./components/SocialMedia";
 import Post from "./components/Post";
 import AddPost from "./components/AddPost";
-import EditPost from "./components/EditPost";
-//import EditPost from "./components/editPost2";
+//import EditPost from "./components/EditPost";
+import EditPost from "./components/editPost2";
 import About from "./components/About";
 import "./App.css";
 import uuid from "uuid";
@@ -13,7 +14,9 @@ import ViewPost from "./components/ViewPosts";
 
 class App extends Component {
   //========== create states to encompass the Post array =======
-  state = {
+  constructor(props){
+  super(props)
+ this.state = {
     //=== <create Post array and use uuid library to dynamically generate id====
     articles: [
       {
@@ -34,7 +37,8 @@ class App extends Component {
         category: 'Sport',
         content: 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content',
       }
-    ]
+   ]
+  }
   };
 
 
@@ -127,7 +131,8 @@ class App extends Component {
                   id={props.match.params.id}
                   delPost={this.delPost}
                   onChange={this.onChange}
-                  editPost={this.editPost} />}
+                  editPost={this.editPost}
+                  getPostDetails={this.getPostDetails}/>}
               />
               <Route
                 exact
@@ -139,7 +144,8 @@ class App extends Component {
                     delPost={this.delPost}
                     onChange={this.onChange}
                     editPost={this.editPost}
-                    {...this.state} />
+                    {...this.state}
+                    getPostDetails={this.getPostDetails}/>
                 }
                 }
               />

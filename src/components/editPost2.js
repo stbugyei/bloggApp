@@ -14,6 +14,12 @@ export class EditPost extends Component {
         content: ''
     };
 
+  /*  constructor(props) {
+        super(props)
+        const { articles } = props
+        console.log(articles)
+    }*/
+    
 
     static contextTypes = {
         router: PropTypes.object
@@ -22,7 +28,7 @@ export class EditPost extends Component {
     onSubmit = e => {
         e.preventDefault();
         const PostFiltered = {
-            id: uuid.v4(),
+            id: this.state.id,
             title: this.state.title,
             category: this.state.category,
             content: this.state.content
@@ -31,7 +37,6 @@ export class EditPost extends Component {
         const id = (this.props.match.params.id);
         this.props.editPost(id, PostFiltered);
         this.props.history.push('/Post');
-
 
     };
 
@@ -45,6 +50,9 @@ export class EditPost extends Component {
 
     render() {
         console.log(this.state)
+        console.log(this.props.articles[0])
+       /* const { title, category, content } = this.props.articles[0]*/
+       // console.log(this.props.editPost)
         return (
             <div className="head">
                 <div className="container">
@@ -61,7 +69,6 @@ export class EditPost extends Component {
                                             placeholder="Edit Title"
                                             value={this.state.title}
                                             onChange={this.onChange}
-
                                         >
                                         </input>
                                     </div>
@@ -77,27 +84,28 @@ export class EditPost extends Component {
                                         </input>
                                     </div>
                                     <div>
-                                        <textarea id="content"
+                                        <textarea
+                                            id="content"
                                             name='content'
                                             placeholder="Edit Content"
                                             value={this.state.content}
-                                            onChange={this.onChange} cols="50" rows="10"></textarea>
+                                            onChange={this.onChange} cols="50" rows="10">
+                                            </textarea>
                                     </div>
                                     <div className='buttons'>
                                         <div>
                                             <Link to='/Post'>
                                                 <button className='btn'>
-
                                                     Cancel
                                                 </button>
                                             </Link>
                                         </div>
-
+                                     
                                         <div>
                                             <Link to='/Post'>
                                                 <button className='btn'
-                                                   
-                                                >
+                                                 onClick={this.onSubmit}>   
+                                                
                                                     {" "}
                             save{" "}
                                                 </button>
@@ -116,9 +124,24 @@ export class EditPost extends Component {
 }
 
 //=========== creating propTypes ===========
-EditPost.propTypes = {
+/*EditPost.propTypes = {
     EditPost: PropTypes.func
 };
-
+*/
 
 export default withRouter(EditPost);
+/* onSubmit = e => {
+        e.preventDefault();
+        const PostFiltered = {
+            id: this.props.id,
+            title: this.props.title,
+            category: this.props.category,
+            content: this.props.content
+        }
+
+        const id = (this.props.match.params.id);
+        this.props.editPost(id, PostFiltered);
+        this.props.history.push('/Post');
+
+    };
+ */
