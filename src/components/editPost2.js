@@ -42,7 +42,7 @@ export class EditPost extends Component {
 
     //========= An onChange event for populating the state(articles)=========
 
-    onChange = e => {
+   onChange = e => {
         const { name, value } = e.target
         this.setState({ [name]: value })
     }

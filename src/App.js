@@ -124,18 +124,6 @@ class App extends Component {
               />
               <Route
                 exact
-                path={`/post/edit/:id`}
-                render={(props) => <EditPost {...this.props}
-                  articles={this.state.articles}
-                  {...this.state}
-                  id={props.match.params.id}
-                  delPost={this.delPost}
-                  onChange={this.onChange}
-                  editPost={this.editPost}
-                  getPostDetails={this.getPostDetails}/>}
-              />
-              <Route
-                exact
                 path={`/post/:id`}
                 render={(props) => {
                   return <ViewPost articles={this.state.articles}
@@ -148,6 +136,18 @@ class App extends Component {
                     getPostDetails={this.getPostDetails}/>
                 }
                 }
+              />
+                <Route
+                exact
+                path={`/post/edit/:id`}
+                render={(props) => <EditPost {...this.props}
+                  articles={this.state.articles}
+                  {...this.state}
+                  id={props.match.params.id}
+                  delPost={this.delPost}
+                  onChange={this.onChange}
+                  editPost={this.editPost}
+                  getPostDetails={this.getPostDetails}/>}
               />
             </Router >
           </div>
