@@ -7,7 +7,7 @@ const Post = ({ id, articles, getPostDetails, delPost, editPost}) => {
 
     return (
         <div>
-            {articles.map(post => (
+            {articles.map((post)=> (
                 <div key={post.id} className='head'>
                     <div className='container'>
                         <div className="post">

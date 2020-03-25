@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+//import loadArticles from "./components/articles";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
-import SocialMedia from "./components/SocialMedia";
 import Post from "./components/Post";
 import AddPost from "./components/AddPost";
 //import EditPost from "./components/EditPost";
@@ -10,37 +10,24 @@ import About from "./components/About";
 import "./App.css";
 import uuid from "uuid";
 import ViewPost from "./components/ViewPosts";
+import articles from "./components/articles";
 //import axios from 'axios';
 
 class App extends Component {
   //========== create states to encompass the Post array =======
-  constructor(props){
-  super(props)
- this.state = {
-    //=== <create Post array and use uuid library to dynamically generate id====
-    articles: [
-      {
-        id: uuid.v4(),
-        title: 'My day in integrify',
-        category: 'Work',
-        content: 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.',
-      },
-      {
-        id: uuid.v4(),
-        title: 'My talk at React Meetup',
-        category: 'Speech',
-        content: 'Something content here. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content',
-      },
-      {
-        id: uuid.v4(),
-        title: 'Running in the forest',
-        category: 'Sport',
-        content: 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content',
-      }
-   ]
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles: articles,
+    };
+    this.getPostDetails = this.getPostDetails.bind(this);
+    this.updateState = this.updateState.bind(this);
   };
 
+ /* componentDidMount() {
+    const articles = loadArticles();
+    this.setState({articles})
+  }*/
 
   //==========Function to addNewPost =======
   addNewPost = (title, category, content) => {
@@ -52,27 +39,36 @@ class App extends Component {
     };
     this.setState({ articles: [...this.state.articles, newPost] });
   };
-
-
+  
   //==========Function to editPost =======
 
-  getPostDetails = (id, title, category, content) => {
+  getPostDetails(id) { 
     const articles = this.state.articles;
     articles.map(post => {
       if (post.id === id) {
-        post.title = title;
-        post.category = category;
-        post.content = content;
+        post.id = this.state.id;
+        post.title = this.state.title;
+        post.content = this.state.content;
+        post.category = this.state.category;
       }
-      return post.id === id
+      return post;
     })
     this.setState({
       articles: articles
     })
-  }
+  };
 
+  updateState(data) {
+    this.setState(prevState => {
+      return {
+        articles: data
+      };
+    });
+  
+  };
+
+  //==========Function to editPost =======
   editPost = (id, PostFiltered) => {
-
     const articles = [...this.state.articles];
     let index = articles.findIndex(post => post.id === id);
     articles[index] = PostFiltered;
@@ -80,6 +76,7 @@ class App extends Component {
       articles: articles
     })
   };
+  
 
   //==========Function to delete deletepost ========
   delPost = id => {
@@ -107,7 +104,8 @@ class App extends Component {
                 exact
                 path="/Post"
                 render={() =>
-                  <Post {...this.props}
+                  <Post
+                    {...this.props}
                     articles={this.state.articles}
                     delPost={this.delPost} />}
               />
@@ -118,36 +116,43 @@ class App extends Component {
               <Route
                 exact
                 path="/AddPost"
-                render={() => <AddPost {...this.props}
+                render={() =>
+                  <AddPost {...this.props}
                   addNewPost={this.addNewPost}
                   Redirect to="/Post" />}
               />
               <Route
                 exact
                 path={`/post/:id`}
-                render={(props) => {
-                  return <ViewPost articles={this.state.articles}
+                render={props => (
+                 <ViewPost
+                    articles={this.state.articles}
                     {...this.props}
                     id={props.match.params.id}
                     delPost={this.delPost}
                     onChange={this.onChange}
                     editPost={this.editPost}
                     {...this.state}
-                    getPostDetails={this.getPostDetails}/>
-                }
-                }
+                    getPostDetails={this.getPostDetails}
+                    updateState={this.state.updateState}
+                  />
+                )}
               />
-                <Route
+              <Route
                 exact
                 path={`/post/edit/:id`}
-                render={(props) => <EditPost {...this.props}
+                render={(props) =>
+                  <EditPost
+                  {...this.props}
                   articles={this.state.articles}
-                  {...this.state}
-                  id={props.match.params.id}
                   delPost={this.delPost}
                   onChange={this.onChange}
-                  editPost={this.editPost}
-                  getPostDetails={this.getPostDetails}/>}
+                    editPost={this.editPost}
+                    {...this.state}
+                  getPostDetails={this.getPostDetails}
+                  updateState={this.updateState}
+                />
+                }
               />
             </Router >
           </div>

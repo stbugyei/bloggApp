@@ -2,18 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 
-const EditPost = ({ articles, id, delPost, getPostDetails, editPost, onChange  }) => {
+const EditPost = ({articles, id, title, category, content, delPost, getPostDetails, editPost, onChange  }) => {
    
  
-    const PostFiltered = articles.find(post => post.id === id);
+  //  const PostFiltered = articles.find(post => post.id === id);
 
-    const { title, category, content } = PostFiltered
+   // const { title, category, content } = PostFiltered
   
    /* const onChange = e => {
            const { name, value } = e.target
            this.setState({ [name]: value })
        }*/
-     
+       console.log(articles)
     return (
       
         <div className="head">

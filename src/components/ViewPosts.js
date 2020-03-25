@@ -24,8 +24,6 @@ const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
                     </Link>
                     <Link to={`/post/edit/${id}`}>
                         <button className='btn'
-                         value={id}
-                            onClick={(id) => editPost(id)}
                         >
                             {" "}
                         Edit{" "}

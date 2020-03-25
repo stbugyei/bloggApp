@@ -35,7 +35,6 @@ export class AddPost extends Component {
         this.setState({ [name]: value })
     }
 
-
     render() {
         return (
             <div className="head">
@@ -43,7 +42,7 @@ export class AddPost extends Component {
                     <form>
                         <div className="form_content">
                             <div className="fieldset_content">
-                            <h1>Add New Post</h1>
+                                <h1>Add New Post</h1>
                                 <div className="Search_Submit">
                                     <div>
                                         <input
@@ -66,7 +65,7 @@ export class AddPost extends Component {
                                             onChange={this.onChange}
                                         >
                                         </input>
-                                    </div>                            
+                                    </div>
                                     <div>
                                         <textarea id="content"
                                             name='content'
@@ -74,23 +73,23 @@ export class AddPost extends Component {
                                             value={this.state.content}
                                             onChange={this.onChange} cols="50" rows="10"></textarea>
                                     </div>
-                                    <div className ='buttons'>
-                                    <div>
-                                        <button className='btn'
-                                            onClick={this.onSubmit}>
-                                            Save Post
+                                    <div className='buttons'>
+                                        <div>
+                                            <button className='btn'
+                                                onClick={this.onSubmit}>
+                                                Save Post
                                         </button>
-                                    </div>  
-                                     <div>
-                                        <Link to='/Post'>
-                                            <button className='btn'>
-                                                Cancel
+                                        </div>
+                                        <div>
+                                            <Link to='/Post'>
+                                                <button className='btn'>
+                                                    Cancel
                                                 </button>
-                                        </Link>
+                                            </Link>
+                                        </div>
                                     </div>
-                                    </div>
-                                    
-                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -106,4 +105,4 @@ AddPost.propTypes = {
 };
 
 
-export default withRouter (AddPost);
+export default withRouter(AddPost);
