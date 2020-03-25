@@ -1,1 +1,2 @@
-postblog.netlify.com
+
+https://postblog.netlify.com/
