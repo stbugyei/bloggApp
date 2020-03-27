@@ -75,7 +75,7 @@ class App extends Component {
     this.setState({
       articles: articles
     })
-  };
+  };z
   
 
   //==========Function to delete deletepost ========
@@ -102,9 +102,9 @@ class App extends Component {
               <Header />
               <Route
                 exact
-                path="/Post"
+                path="/"
                 render={() =>
-                  <Post
+                  < Post
                     {...this.props}
                     articles={this.state.articles}
                     delPost={this.delPost} />}

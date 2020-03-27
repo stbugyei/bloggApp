@@ -67,7 +67,7 @@ export class EditPost extends Component {
 
     render() {
         //  console.log(this.props.article)
-        //console.log(this.state)
+        //zconsole.log(this.state)
         // console.log(this.props.articles[0])
         // const { title, category, content } = this.props.articles[0]
         // console.log(this.props.editPost)
