@@ -111,6 +111,15 @@ class App extends Component {
               />
               <Route
                 exact
+                path="/Post"
+                render={() =>
+                  <Post
+                    {...this.props}
+                    articles={this.state.articles}
+                    delPost={this.delPost} />}
+              />
+              <Route
+                exact
                 path="/About" component={About}>
               </Route>
               <Route
