@@ -20,15 +20,9 @@ class App extends Component {
     this.state = {
       articles: articles,
     };
-    this.getPostDetails = this.getPostDetails.bind(this);
-    this.updateState = this.updateState.bind(this);
   };
 
- /* componentDidMount() {
-    const articles = loadArticles();
-    this.setState({articles})
-  }*/
-
+  
   //==========Function to addNewPost =======
   addNewPost = (title, category, content) => {
     const newPost = {
@@ -39,44 +33,38 @@ class App extends Component {
     };
     this.setState({ articles: [...this.state.articles, newPost] });
   };
-  
+
   //==========Function to editPost =======
 
-  getPostDetails(id) { 
-    const articles = this.state.articles;
-    articles.map(post => {
-      if (post.id === id) {
-        post.id = this.state.id;
-        post.title = this.state.title;
-        post.content = this.state.content;
-        post.category = this.state.category;
-      }
-      return post;
-    })
-    this.setState({
-      articles: articles
-    })
-  };
 
-  updateState(data) {
-    this.setState(prevState => {
-      return {
-        articles: data
-      };
-    });
+  // getPostDetails(PostFiltered, id) {
+
+  //   const articles = [...this.state.articles];
+  //   articles.map(post => {
+  //     if (post.id === id) {
+  //       return PostFiltered
+  //     }
+  //     return post;
+  //   })
+  //   this.setState({
+  //     articles
+  //   })
+  // };
   
-  };
+ 
 
   //==========Function to editPost =======
   editPost = (id, PostFiltered) => {
+
     const articles = [...this.state.articles];
     let index = articles.findIndex(post => post.id === id);
     articles[index] = PostFiltered;
     this.setState({
       articles: articles
     })
-  };z
-  
+    
+  };
+
 
   //==========Function to delete deletepost ========
   delPost = id => {
@@ -94,6 +82,7 @@ class App extends Component {
 
 
   render() {
+
     return (
       <div className='head'>
         <div className='container'>
@@ -111,15 +100,6 @@ class App extends Component {
               />
               <Route
                 exact
-                path="/Post"
-                render={() =>
-                  <Post
-                    {...this.props}
-                    articles={this.state.articles}
-                    delPost={this.delPost} />}
-              />
-              <Route
-                exact
                 path="/About" component={About}>
               </Route>
               <Route
@@ -127,14 +107,14 @@ class App extends Component {
                 path="/AddPost"
                 render={() =>
                   <AddPost {...this.props}
-                  addNewPost={this.addNewPost}
-                  Redirect to="/Post" />}
+                    addNewPost={this.addNewPost}
+                    Redirect to="/Post" />}
               />
               <Route
                 exact
                 path={`/post/:id`}
                 render={props => (
-                 <ViewPost
+                  <ViewPost
                     articles={this.state.articles}
                     {...this.props}
                     id={props.match.params.id}
@@ -152,15 +132,15 @@ class App extends Component {
                 path={`/post/edit/:id`}
                 render={(props) =>
                   <EditPost
-                  {...this.props}
-                  articles={this.state.articles}
-                  delPost={this.delPost}
-                  onChange={this.onChange}
+                    {...this.props}
+                    articles={this.state.articles}
+                    delPost={this.delPost}
+                    onChange={this.onChange}
                     editPost={this.editPost}
                     {...this.state}
-                  getPostDetails={this.getPostDetails}
-                  updateState={this.updateState}
-                />
+                    getPostDetails={this.getPostDetails}
+                    updateState={this.updateState}
+                  />
                 }
               />
             </Router >

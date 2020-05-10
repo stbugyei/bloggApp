@@ -21,7 +21,7 @@ function Header() {
                     </div>
                 </div>
                 <div className='banner_link'>
-                    <Link className="headerLink" to="/Post">
+                    <Link className="headerLink" to="/">
                         <div className='buttons-wrapper'>
                             <button className='btnsub-left'>
                                 <img

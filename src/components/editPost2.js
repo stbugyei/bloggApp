@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-//import articles from "./articles";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import uuid from "uuid";
-
 
 
 export class EditPost extends Component {
@@ -12,48 +9,42 @@ export class EditPost extends Component {
         super(props);
         //  const { title, category, content } = this.props.articles[0]
         this.state = {
-            //  articles: '',
-            id: uuid.v4(),
-            title: '',
-            category: '',
-            content: '',
-            //    ...this.props.articles[0],
-            ...this.props.articles[this.props.match.params.id]
+           articles: '',
+            // // id: uuid.v4(),
+            // id: '',
+            // title: '',
+            // category: '',
+            // content: '',
+           // ...this.props.articles[0]
+            //...this.props.articles[this.props.match.params.id]
         };
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
     }
 
-    /*  componentDidMount() {
-          const articles = loadArticles();
-          this.setState({articles})
-        }*/
-    /*  constructor(props) {
-          super(props)
-          const { articles } = props
-          console.log(articles)
-      }*/
-
+   
+      componentDidMount() {
+        this.setState({articles:this.props.articles})
+      }
 
     static contextTypes = {
         router: PropTypes.object
     }
     //========= An onSubmit event for submitting the state(articles)=========
+
+
     onSubmit = e => {
+
         e.preventDefault();
-        const PostFiltered = {
+
+            const PostFiltered = {
             id: this.state.id,
             title: this.state.title,
             category: this.state.category,
             content: this.state.content
         }
 
-
-        // this.props.getPostDetails(PostFiltered);
         const id = (this.props.match.params.id);
         this.props.editPost(id, PostFiltered);
-        /**/
-        this.props.history.push('/Post');
+        this.props.history.push('/');
 
     };
 
@@ -66,11 +57,12 @@ export class EditPost extends Component {
 
 
     render() {
-        //  console.log(this.props.article)
-        //zconsole.log(this.state)
-        // console.log(this.props.articles[0])
-        // const { title, category, content } = this.props.articles[0]
-        // console.log(this.props.editPost)
+
+         const id = (this.props.match.params.id);
+         const currentArticle = this.props.articles.find(post => post.id === id);
+        const { title, category, content } = currentArticle
+       // console.log(currentArticle)
+
         return (
             <div className="head">
                 <div className="container">
@@ -85,7 +77,7 @@ export class EditPost extends Component {
                                             id="title"
                                             name='title'
                                             placeholder="Edit Title"
-                                            value={this.state.title}
+                                            value={title}
                                             onChange={this.onChange}
                                         >
                                         </input>
@@ -96,7 +88,7 @@ export class EditPost extends Component {
                                             id="category"
                                             name='category'
                                             placeholder=" Edit category"
-                                            value={this.state.category}
+                                            value={category}
                                             onChange={this.onChange}
                                         >
                                         </input>
@@ -106,13 +98,13 @@ export class EditPost extends Component {
                                             id="content"
                                             name='content'
                                             placeholder="Edit Content"
-                                            value={this.state.content}
+                                            value={content}
                                             onChange={this.onChange} cols="50" rows="10">
                                         </textarea>
                                     </div>
                                     <div className='buttons'>
                                         <div>
-                                            <Link to='/Post'>
+                                            <Link to='/'>
                                                 <button className='btn'>
                                                     Cancel
                                                 </button>
@@ -120,7 +112,7 @@ export class EditPost extends Component {
                                         </div>
 
                                         <div>
-                                            <Link to='/Post'>
+                                            <Link to='/'>
                                                 <button className='btn'
                                                     onClick={this.onSubmit}>
 

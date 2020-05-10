@@ -25,7 +25,7 @@ export class AddPost extends Component {
             this.state.content
         );
         this.setState({ [e.target.title]: "", [e.target.category]: "", [e.target.content]: "" })
-        this.props.history.push('/Post');
+        this.props.history.push('/');
     };
 
     //========= An onChange event for populating the state(articles)=========
@@ -81,7 +81,7 @@ export class AddPost extends Component {
                                         </button>
                                         </div>
                                         <div>
-                                            <Link to='/Post'>
+                                            <Link to='/'>
                                                 <button className='btn'>
                                                     Cancel
                                                 </button>

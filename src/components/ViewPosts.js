@@ -4,10 +4,10 @@ import { withRouter } from "react-router-dom";
 
 const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
 
-    const PostFiltered = articles.find(post => post.id === id);
+    const detailPost = articles.find(post => post.id === id);
 
-    const { title, category, content } = PostFiltered
-
+    const { title, category, content } = detailPost
+   // console.log(detailPost)
     return (
         <div className='container'>
             <div className="singlepost">
@@ -17,7 +17,7 @@ const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
                     <div className="post-text"><p>{content}</p></div>
                 </div>
                 <div className='button-post'>
-                    <Link to='/Post'>
+                    <Link to='/'>
                         <button className="btn">
                             Back to posts
                         </button>
@@ -29,7 +29,7 @@ const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
                         Edit{" "}
                         </button>
                     </Link>
-                    <Link to='/Post'>
+                    <Link to='/'>
                         <button className='btn'
                             onClick={() => delPost(id)}
                         >
