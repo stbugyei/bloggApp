@@ -2,17 +2,16 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 
-const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
+const ViewPost = ({ articles, id, delPost }) => {
 
     const detailPost = articles.find(post => post.id === id);
-
-    const { title, category, content } = detailPost
-   // console.log(detailPost)
+    const { title, category, content} = detailPost
+   
     return (
         <div className='container'>
             <div className="singlepost">
-                <div className="singlepost-content">
-                    <div className="post-title">Title: {title}</div>
+                <div className="singlepost-content">                
+                    <div className="post-title">Title:{title}</div>
                     <div className="post-catagory">Category: {category}</div>
                     <div className="post-text"><p>{content}</p></div>
                 </div>
@@ -33,7 +32,7 @@ const ViewPost = ({ articles, id, delPost, editPost, getPostDetails }) => {
                         <button className='btn'
                             onClick={() => delPost(id)}
                         >
-                        {" "}
+                            {" "}
                         Delete{" "}
                         </button>
                     </Link>

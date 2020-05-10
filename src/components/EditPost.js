@@ -13,7 +13,7 @@ const EditPost = ({articles, id, title, category, content, delPost, getPostDetai
            const { name, value } = e.target
            this.setState({ [name]: value })
        }*/
-       console.log(articles[0].id)
+      // console.log(articles[0].id)
     return (
         <div className="head">
         <div className="container">

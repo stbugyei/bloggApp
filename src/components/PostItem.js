@@ -2,7 +2,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const PostItem = ({ id, title, category, delPost, getPostDetails, editPost }) => {
+const PostItem = ({ id, title, category}) => {
+ 
 
   return (
     <div>

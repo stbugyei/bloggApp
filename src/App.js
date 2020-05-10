@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import loadArticles from "./components/articles";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Post from "./components/Post";
@@ -11,7 +10,7 @@ import "./App.css";
 import uuid from "uuid";
 import ViewPost from "./components/ViewPosts";
 import articles from "./components/articles";
-//import axios from 'axios';
+
 
 class App extends Component {
   //========== create states to encompass the Post array =======
@@ -36,34 +35,12 @@ class App extends Component {
 
   //==========Function to editPost =======
 
-
-  // getPostDetails(PostFiltered, id) {
-
-  //   const articles = [...this.state.articles];
-  //   articles.map(post => {
-  //     if (post.id === id) {
-  //       return PostFiltered
-  //     }
-  //     return post;
-  //   })
-  //   this.setState({
-  //     articles
-  //   })
-  // };
-  
- 
-
-  //==========Function to editPost =======
-  editPost = (id, PostFiltered) => {
-
-    const articles = [...this.state.articles];
-    let index = articles.findIndex(post => post.id === id);
-    articles[index] = PostFiltered;
-    this.setState({
-      articles: articles
+  editPost = (filteredPost, id) => {
+    const singleArticles = this.state.articles.map((post) => {
+    return post.id === id ? filteredPost : post
     })
-    
-  };
+    this.setState({articles: singleArticles})
+  }
 
 
   //==========Function to delete deletepost ========
@@ -108,7 +85,7 @@ class App extends Component {
                 render={() =>
                   <AddPost {...this.props}
                     addNewPost={this.addNewPost}
-                    Redirect to="/Post" />}
+                    />}
               />
               <Route
                 exact
@@ -122,8 +99,6 @@ class App extends Component {
                     onChange={this.onChange}
                     editPost={this.editPost}
                     {...this.state}
-                    getPostDetails={this.getPostDetails}
-                    updateState={this.state.updateState}
                   />
                 )}
               />
@@ -131,15 +106,13 @@ class App extends Component {
                 exact
                 path={`/post/edit/:id`}
                 render={(props) =>
-                  <EditPost
+                  <EditPost id={props.match.params.id}
                     {...this.props}
                     articles={this.state.articles}
                     delPost={this.delPost}
                     onChange={this.onChange}
                     editPost={this.editPost}
                     {...this.state}
-                    getPostDetails={this.getPostDetails}
-                    updateState={this.updateState}
                   />
                 }
               />

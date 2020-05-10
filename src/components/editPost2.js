@@ -7,62 +7,55 @@ import PropTypes from "prop-types";
 export class EditPost extends Component {
     constructor(props) {
         super(props);
-        //  const { title, category, content } = this.props.articles[0]
         this.state = {
-           articles: '',
-            // // id: uuid.v4(),
-            // id: '',
-            // title: '',
-            // category: '',
-            // content: '',
-           // ...this.props.articles[0]
-            //...this.props.articles[this.props.match.params.id]
+            articles: {
+                id: '',
+                title: '',
+                category: '',
+                content: '',
+            }
         };
     }
 
-   
-      componentDidMount() {
-        this.setState({articles:this.props.articles})
-      }
+
+    componentDidMount() {
+        const { articles, id } = this.props
+        const post = articles.find((post) => {
+            return post.id === id
+        })
+        this.setState({ articles: post })
+    }
+
 
     static contextTypes = {
         router: PropTypes.object
     }
+
+
     //========= An onSubmit event for submitting the state(articles)=========
 
-
     onSubmit = e => {
-
         e.preventDefault();
-
-            const PostFiltered = {
-            id: this.state.id,
-            title: this.state.title,
-            category: this.state.category,
-            content: this.state.content
-        }
-
-        const id = (this.props.match.params.id);
-        this.props.editPost(id, PostFiltered);
-        this.props.history.push('/');
-
+        this.props.editPost(this.state.articles, this.props.id);
+        const id = this.props.match.params.id
+        this.props.history.push(`/post/${id}`);
     };
+
 
     //========= An onChange event for populating the state(articles)=========
 
     onChange = e => {
-        const { name, value } = e.target
-        this.setState({ [name]: value })
+        const { name, value } = e.target;
+        const editPost = { ...this.state.articles, [name]: value }
+        this.setState({ articles: editPost })
     }
+
 
 
     render() {
 
-         const id = (this.props.match.params.id);
-         const currentArticle = this.props.articles.find(post => post.id === id);
-        const { title, category, content } = currentArticle
-       // console.log(currentArticle)
-
+        const { title, category, content} = this.state.articles;
+        const id = this.props.match.params.id
         return (
             <div className="head">
                 <div className="container">
@@ -104,7 +97,7 @@ export class EditPost extends Component {
                                     </div>
                                     <div className='buttons'>
                                         <div>
-                                            <Link to='/'>
+                                            <Link to={`/post/${id}`}>
                                                 <button className='btn'>
                                                     Cancel
                                                 </button>
@@ -112,7 +105,7 @@ export class EditPost extends Component {
                                         </div>
 
                                         <div>
-                                            <Link to='/'>
+                                            <Link to={`/post/${id}`}>
                                                 <button className='btn'
                                                     onClick={this.onSubmit}>
 
@@ -140,18 +133,3 @@ export class EditPost extends Component {
 */
 
 export default withRouter(EditPost);
-/* onSubmit = e => {
-        e.preventDefault();
-        const PostFiltered = {
-            id: this.props.id,
-            title: this.props.title,
-            category: this.props.category,
-            content: this.props.content
-        }
-
-        const id = (this.props.match.params.id);
-        this.props.editPost(id, PostFiltered);
-        this.props.history.push('/Post');
-
-    };
- */

@@ -8,8 +8,7 @@ export class AddPost extends Component {
     state = {
         title: "",
         category: "",
-        content: ""
-
+        content: "",
     };
 
 
@@ -24,7 +23,7 @@ export class AddPost extends Component {
             this.state.category,
             this.state.content
         );
-        this.setState({ [e.target.title]: "", [e.target.category]: "", [e.target.content]: "" })
+        this.setState({ [e.target.title]: "", [e.target.category]: "", [e.target.content]: "", })
         this.props.history.push('/');
     };
 

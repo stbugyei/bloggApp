@@ -3,7 +3,7 @@ import React from 'react'
 import PostItem from "./PostItem";
 //import PropTypes from "prop-types";
 
-const Post = ({ id, articles, getPostDetails, delPost, editPost}) => {
+const Post = ({ id, articles, delPost, editPost}) => {
 
     return (
         <div>
