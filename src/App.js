@@ -23,9 +23,12 @@ class App extends Component {
 
   
   //==========Function to addNewPost =======
-  addNewPost = (title, category, content) => {
+  addNewPost = (image, title, category, date, sypnosis, content) => {
     const newPost = {
       id: uuid.v4(),
+      image,
+      date,
+      sypnosis,
       title,
       category,
       content
@@ -59,11 +62,10 @@ class App extends Component {
 
 
   render() {
-
+ 
     return (
-      <div className='head'>
         <div className='container'>
-          <div className='wrapper'>
+   
             <Router>
               <Header />
               <Route
@@ -118,9 +120,7 @@ class App extends Component {
               />
             </Router >
           </div>
-        </div>
-      </div>
-
+    
     );
   }
 }

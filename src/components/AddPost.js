@@ -6,7 +6,10 @@ import PropTypes from "prop-types";
 
 export class AddPost extends Component {
     state = {
+        image: "",
         title: "",
+        date: "",
+        sypnosis:"",
         category: "",
         content: "",
     };
@@ -19,11 +22,14 @@ export class AddPost extends Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.addNewPost(
-            this.state.title,
+            this.state.image,
             this.state.category,
+            this.state.title,
+            this.state.date,
+            this.state.sypnosis,
             this.state.content
         );
-        this.setState({ [e.target.title]: "", [e.target.category]: "", [e.target.content]: "", })
+        this.setState({ [e.target.image]: "", [e.target.category]: "",  [e.target.title]: "", [e.target.date]: "", [e.target.sypnosis]: "", [e.target.content]: ""})
         this.props.history.push('/');
     };
 
@@ -36,68 +42,107 @@ export class AddPost extends Component {
 
     render() {
         return (
-            <div className="head">
-                <div className="container">
-                    <form>
-                        <div className="form_content">
-                            <div className="fieldset_content">
-                                <h1>Add New Post</h1>
-                                <div className="Search_Submit">
-                                    <div>
-                                        <input
-                                            type="text"
-                                            id="title"
-                                            name='title'
-                                            placeholder="+ Title"
-                                            value={this.state.title}
-                                            onChange={this.onChange}
-                                        >
-                                        </input>
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="text"
-                                            id="category"
-                                            name='category'
-                                            placeholder="+ Category"
-                                            value={this.state.category}
-                                            onChange={this.onChange}
-                                        >
-                                        </input>
-                                    </div>
-                                    <div>
-                                        <textarea id="content"
-                                            name='content'
-                                            placeholder="+ Content"
-                                            value={this.state.content}
-                                            onChange={this.onChange} cols="50" rows="10"></textarea>
-                                    </div>
-                                    <div className='buttons'>
-                                        <div>
-                                            <button className='btn'
-                                                onClick={this.onSubmit}>
-                                                Save Post
-                                        </button>
-                                        </div>
-                                        <div>
-                                            <Link to='/'>
-                                                <button className='btn'>
-                                                    Cancel
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
+            <>
+                <form>
+                    <div className="form_content">
+                        <div className="fieldset_content">
+                            <h1>Add New Post</h1>
+                            <div className="Search_Submit">
 
+                                <div className='card_content-category'>
+                                    <img
+                                        style={post_img}
+                                        src={this.state.image}
+                                        alt=" "
+                                        onChange={this.onChange}
+                                    />
                                 </div>
+    
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="title"
+                                        name='title'
+                                        placeholder="+ Title"
+                                        value={this.state.title}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="category"
+                                        name='category'
+                                        placeholder="+ Category"
+                                        value={this.state.category}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="date"
+                                        name="date"
+                                        placeholder="+ Date"
+                                        value={this.state.date}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="sypnosis"
+                                        name='sypnosis'
+                                        placeholder="+ Sypnosis"
+                                        value={this.state.sypnosis}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <textarea id="content"
+                                        name='content'
+                                        placeholder="+ Content"
+                                        value={this.state.content}
+                                        onChange={this.onChange} cols="50" rows="10"></textarea>
+                                </div>
+
+                                <div className='buttons'>
+                                    <div>
+                                        <button className='btn'
+                                            onClick={this.onSubmit}>
+                                            Save Post
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <Link to='/'>
+                                            <button className='btn'>
+                                                Cancel
+                                                </button>
+                                        </Link>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+                </form>
+            </>
         );
     }
 }
 
+const post_img = {
+    width: '100%',
+    marginBottom: '15px'
+}
 //=========== creating propTypes ===========
 AddPost.propTypes = {
     AddPost: PropTypes.func

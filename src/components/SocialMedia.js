@@ -8,8 +8,6 @@ import Pinterest from "./images/pinterest.png";
 class SocialMedia extends Component {
   render() {
     return (
-        <div className="container">
-          <div className="footer_bottom">
             <div className="icon_group">
               <div className="bottom_icons">
                 <div className="twitter">
@@ -69,8 +67,6 @@ class SocialMedia extends Component {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
     );
   }
 }

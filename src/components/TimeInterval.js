@@ -23,7 +23,7 @@ class displayDateTime extends Component {
     //console.log(this.state.curTime)
 
   }
-    render() {
+  render() {
          return(
            <div>
              {this.state.curTime}

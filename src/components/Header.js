@@ -9,18 +9,11 @@ import { Link } from "react-router-dom";
 function Header() {
 
     return (
-        <div className="head">
-            <div className="container">
-        
+     
+            <>
                 <div className='banner_wrapper'>
-                <Socialmedia/>
-                    <div className='banner_text'>
-                        Articles & Blog Posts
-                            </div>
-                    <div className='banner_text'>
-                        <TimeInterval />
-                    </div>
-                </div>
+                <Socialmedia />
+
                 <div className='banner_link'>
                     <Link className="headerLink" to="/">
                         <div className='buttons-wrapper'>
@@ -64,8 +57,19 @@ function Header() {
                         </div>
                     </Link>{" "}
                 </div>
+    
+                <div className='banner_text'>
+                        <TimeInterval />
+                </div>
+           
+                </div>
+                
+                <div className='banner_text'>
+                        Articles & Blog Posts
             </div>
-        </div>
+              
+            </>
+    
     );
 }
 

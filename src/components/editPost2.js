@@ -10,9 +10,12 @@ export class EditPost extends Component {
         this.state = {
             articles: {
                 id: '',
-                title: '',
-                category: '',
-                content: '',
+                image: "",
+                title: "",
+                date: "",
+                sypnosis: "",
+                category: "",
+                content: "",
             }
         };
     }
@@ -54,78 +57,117 @@ export class EditPost extends Component {
 
     render() {
 
-        const { title, category, content} = this.state.articles;
+        const { title, category, content, date, image } = this.state.articles;
         const id = this.props.match.params.id
         return (
-            <div className="head">
-                <div className="container">
-                    <form>
-                        <div className="form_content">
-                            <div className="fieldset_content">
-                                <h1>Edit Post</h1>
-                                <div className="Search_Submit">
-                                    <div>
-                                        <input
-                                            type="text"
-                                            id="title"
-                                            name='title'
-                                            placeholder="Edit Title"
-                                            value={title}
-                                            onChange={this.onChange}
-                                        >
-                                        </input>
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="text"
-                                            id="category"
-                                            name='category'
-                                            placeholder=" Edit category"
-                                            value={category}
-                                            onChange={this.onChange}
-                                        >
-                                        </input>
-                                    </div>
-                                    <div>
-                                        <textarea
-                                            id="content"
-                                            name='content'
-                                            placeholder="Edit Content"
-                                            value={content}
-                                            onChange={this.onChange} cols="50" rows="10">
-                                        </textarea>
-                                    </div>
-                                    <div className='buttons'>
-                                        <div>
-                                            <Link to={`/post/${id}`}>
-                                                <button className='btn'>
-                                                    Cancel
-                                                </button>
-                                            </Link>
-                                        </div>
+            <>
+                <form>
+                    <div className="form_content">
+                        <div className="fieldset_content">
+                            <h1>Edit Post</h1>
+                            <div className="Search_Submit">
 
-                                        <div>
-                                            <Link to={`/post/${id}`}>
-                                                <button className='btn'
-                                                    onClick={this.onSubmit}>
-
-                                                    {" "}
-                            save{" "}
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-
+                                <div className='card_content-category'>
+                                    <img
+                                        style={post_img}
+                                        src={image}
+                                        alt=" "
+                                        onChange={this.onChange}
+                                    />
                                 </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="title"
+                                        name='title'
+                                        placeholder="Edit Title"
+                                        value={title}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="category"
+                                        name='category'
+                                        placeholder=" Edit category"
+                                        value={category}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="date"
+                                        name="date"
+                                        placeholder="+ Date"
+                                        value={date}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="sypnosis"
+                                        name='sypnosis'
+                                        placeholder="+ Sypnosis"
+                                        value={this.state.sypnosis}
+                                        onChange={this.onChange}
+                                    >
+                                    </input>
+                                </div>
+
+                                <div>
+                                    <textarea
+                                        id="content"
+                                        name='content'
+                                        placeholder="Edit Content"
+                                        value={content}
+                                        onChange={this.onChange} cols="50" rows="10">
+                                    </textarea>
+                                </div>
+
+                                <div className='buttons'>
+                                    <div>
+                                        <Link to={`/post/${id}`}>
+                                            <button className='btn'>
+                                                Cancel
+                                                </button>
+                                        </Link>
+                                    </div>
+
+                                    <div>
+                                        <Link to={`/post/${id}`}>
+                                            <button className='btn'
+                                                onClick={this.onSubmit}>
+
+                                                {" "}
+                                              save{" "}
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+                </form>
+            </>
         );
     }
 }
 
+const post_img = {
+    width: '100%',
+    marginBottom: '15px'
+}
 //=========== creating propTypes ===========
 /*EditPost.propTypes = {
     EditPost: PropTypes.func

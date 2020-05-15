@@ -6,21 +6,20 @@ import PostItem from "./PostItem";
 const Post = ({ id, articles, delPost, editPost}) => {
 
     return (
-        <div>
-            {articles.map((post)=> (
-                <div key={post.id} className='head'>
-                    <div className='container'>
-                        <div className="post">
-                            <PostItem
-                                id={post.id}
-                                title={post.title}
-                                category={post.category}
-                                delPost={delPost}
-                                editPost={editPost}
-                            />                          
-                        </div>
+        <div className='post_wrapper'>
+            {articles.map((post) => (
+                    <div  key={post.id} className="post">
+                        <PostItem
+                            id={post.id}
+                            image={post.image}
+                            category={post.category}
+                            title={post.title}
+                            date={post.date}
+                            sypnosis={post.sypnosis}
+                            delPost={delPost}
+                            editPost={editPost}
+                        />
                     </div>
-                </div>
             ))}
         </div>
     )
