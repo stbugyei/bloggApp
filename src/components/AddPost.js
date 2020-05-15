@@ -13,7 +13,12 @@ export class AddPost extends Component {
         category: "",
         content: "",
     };
-
+    
+ img = (<img
+    // style={post_img}
+    src={this.state.image}
+    alt=" "
+/>)
 
     static contextTypes = {
         router: PropTypes.object
@@ -41,6 +46,7 @@ export class AddPost extends Component {
     }
 
     render() {
+        console.log(this.img)
         return (
             <>
                 <form>
@@ -48,14 +54,23 @@ export class AddPost extends Component {
                         <div className="fieldset_content">
                             <h1>Add New Post</h1>
                             <div className="Search_Submit">
-
+                           
                                 <div className='card_content-category'>
-                                    <img
+                                <input style={post_img}
+                                    type="file"
+                                    id="image"
+                                    name="image"
+                                    accept={this.image}
+                                    value={this.state.image}
+                                    onChange={this.onChange}
+                                    >
+                                    </input>
+                                    {/* <img
                                         style={post_img}
                                         src={this.state.image}
                                         alt=" "
                                         onChange={this.onChange}
-                                    />
+                                    /> */}
                                 </div>
     
                                 <div>
@@ -69,7 +84,6 @@ export class AddPost extends Component {
                                     >
                                     </input>
                                 </div>
-
                                 <div>
                                     <input
                                         type="text"
