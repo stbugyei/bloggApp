@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -8,7 +9,7 @@ export class AddPost extends Component {
     state = {
         image: "",
         title: "",
-        date: "",
+        date:"",
         sypnosis:"",
         category: "",
         content: "",
@@ -18,7 +19,8 @@ export class AddPost extends Component {
     // style={post_img}
     src={this.state.image}
     alt=" "
-/>)
+    />)
+ 
 
     static contextTypes = {
         router: PropTypes.object
@@ -46,7 +48,7 @@ export class AddPost extends Component {
     }
 
     render() {
-        console.log(this.img)
+      
         return (
             <>
                 <form>
@@ -56,14 +58,14 @@ export class AddPost extends Component {
                             <div className="Search_Submit">
                            
                                 <div className='card_content-category'>
-                                <input style={post_img}
+                                <input
                                     type="file"
                                     id="image"
                                     name="image"
-                                    accept={this.image}
+                                    multiple={true} accept="image/*" 
                                     value={this.state.image}
-                                    onChange={this.onChange}
-                                    >
+                                        onChange={this.onChange}
+                                    >                                     
                                     </input>
                                     {/* <img
                                         style={post_img}
@@ -98,10 +100,9 @@ export class AddPost extends Component {
 
                                 <div>
                                     <input
-                                        type="text"
+                                        type="datetime-local" 
                                         id="date"
                                         name="date"
-                                        placeholder="+ Date"
                                         value={this.state.date}
                                         onChange={this.onChange}
                                     >

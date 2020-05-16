@@ -10,8 +10,8 @@ function Header() {
 
     return (
      
-            <>
-                <div className='banner_wrapper'>
+            <div className='banner_wrapper'>
+                <div className='banner_content'>
                 <Socialmedia />
 
                 <div className='banner_link'>
@@ -68,7 +68,7 @@ function Header() {
                         Articles & Blog Posts
             </div>
               
-            </>
+            </div>
     
     );
 }
