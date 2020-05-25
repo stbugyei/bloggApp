@@ -125,13 +125,15 @@ export class EditPost extends Component {
                                 </div>
 
                                 <div>
-                                    <textarea
-                                        id="content"
-                                        name='content'
-                                        placeholder="Edit Content"
-                                        value={content}
-                                        onChange={this.onChange} cols="50" rows="10">
-                                    </textarea>
+                                    <pre>
+                                        <textarea
+                                            id="content"
+                                            name='content'
+                                            placeholder="Edit Content"
+                                            value={content}
+                                            onChange={this.onChange} cols="50" rows="10">
+                                        </textarea>
+                                    </pre>
                                 </div>
 
                                 <div className='buttons'>

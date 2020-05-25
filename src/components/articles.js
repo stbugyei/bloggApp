@@ -36,22 +36,14 @@ const articles = [
   },
   {
     id: uuid.v4(),
-    image: Image2,
+    image: Image3,
     title: 'Running in the forest',
     date: getTime(),
     sypnosis: 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content',
     category: 'Sport',
     content: 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content'
   },
-  {
-    id: uuid.v4(),
-    image: Image3,
-    title: 'Running in the forest',
-    date: getTime(),
-    sypnosis: 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content',
-    category: 'Entertainment',
-    content: 'Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content'
-  }
+ 
 ]
 
 /*const loadArticles = ()=> {

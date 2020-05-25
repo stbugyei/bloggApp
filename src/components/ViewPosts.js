@@ -12,8 +12,7 @@ const ViewPost = ({ articles, id, delPost }) => {
         textAlign: 'center',
         width: '100%'
     }
-
-
+    
     return (
        <div className="singlepost"> 
         {/* <div className="post"> */}
@@ -29,7 +28,7 @@ const ViewPost = ({ articles, id, delPost }) => {
                 <div className="post-title">Title: {title}</div>
                 <div className="post-catagory">Category: {category}</div>
                 <div className="post-catagory">{date}</div>
-                <div className="post-text"><p>{content}</p></div>
+                <div className="post-text"><pre>{content}</pre></div>
             </div>
 
             <div className='button-post'>

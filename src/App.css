@@ -188,13 +188,12 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 .post_wrapper{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   flex-direction: row;
   margin: 26px auto;
 }
 
 .post{
-  width: 40%;
+  width: 28%;
   font-family: serif;
   margin: 26px;
   font-size: 1.0rem;
@@ -216,8 +215,8 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 
 
 .singlepost {
-  width: 70%;
-  margin: 20px auto;
+  width:60%;
+  margin: 50px auto;
   background: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
   border-radius: 4px;
@@ -238,15 +237,18 @@ box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 1px 2px rgba(0, 0, 0, .23);
 }
 
 .post-title{
+  width: 100%;
   font-size: 16px;
 }
 
 .post-catagory{
-padding: 5px 0;
-font-size: 16px;
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
 }
 
 .post-text {
+    width: 100%;
     border: 1px solid indigo;
     border-radius: 5px;
     padding: 15px 10px;
@@ -258,6 +260,19 @@ font-size: 16px;
   margin: 5px;
 }*/
 
+pre {
+  font-family: serif;
+  font-size: 16px;
+  overflow: auto;
+  text-align:left;
+  overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  margin: 0px 0px 0px 0px;
+  padding:5px 5px 3px 5px;
+  white-space : normal; /* crucial for IE 6, maybe 7? */
+}
 
 /*================Buttons==============*/
 

@@ -9,18 +9,18 @@ export class AddPost extends Component {
     state = {
         image: "",
         title: "",
-        date:"",
-        sypnosis:"",
+        date: "",
+        sypnosis: "",
         category: "",
         content: "",
     };
-    
- img = (<img
-    // style={post_img}
-    src={this.state.image}
-    alt=" "
+
+    img = (<img
+        // style={post_img}
+        src={this.state.image}
+        alt=" "
     />)
- 
+
 
     static contextTypes = {
         router: PropTypes.object
@@ -36,7 +36,7 @@ export class AddPost extends Component {
             this.state.sypnosis,
             this.state.content
         );
-        this.setState({ [e.target.image]: "", [e.target.category]: "",  [e.target.title]: "", [e.target.date]: "", [e.target.sypnosis]: "", [e.target.content]: ""})
+        this.setState({ [e.target.image]: "", [e.target.category]: "", [e.target.title]: "", [e.target.date]: "", [e.target.sypnosis]: "", [e.target.content]: "" })
         this.props.history.push('/');
     };
 
@@ -48,7 +48,7 @@ export class AddPost extends Component {
     }
 
     render() {
-      
+
         return (
             <>
                 <form>
@@ -56,16 +56,16 @@ export class AddPost extends Component {
                         <div className="fieldset_content">
                             <h1>Add New Post</h1>
                             <div className="Search_Submit">
-                           
+
                                 <div className='card_content-category'>
-                                <input
-                                    type="file"
-                                    id="image"
-                                    name="image"
-                                    multiple={true} accept="image/*" 
-                                    value={this.state.image}
+                                    <input
+                                        type="file"
+                                        id="image"
+                                        name="image"
+                                        multiple={true} accept="image/*"
+                                        value={this.state.image}
                                         onChange={this.onChange}
-                                    >                                     
+                                    >
                                     </input>
                                     {/* <img
                                         style={post_img}
@@ -74,8 +74,8 @@ export class AddPost extends Component {
                                         onChange={this.onChange}
                                     /> */}
                                 </div>
-    
-                                <div>
+
+                                <div> <pre>
                                     <input
                                         type="text"
                                         id="title"
@@ -85,6 +85,8 @@ export class AddPost extends Component {
                                         onChange={this.onChange}
                                     >
                                     </input>
+                                </pre>
+
                                 </div>
                                 <div>
                                     <input
@@ -100,7 +102,7 @@ export class AddPost extends Component {
 
                                 <div>
                                     <input
-                                        type="datetime-local" 
+                                        type="datetime-local"
                                         id="date"
                                         name="date"
                                         value={this.state.date}
@@ -110,23 +112,29 @@ export class AddPost extends Component {
                                 </div>
 
                                 <div>
-                                    <input
-                                        type="text"
-                                        id="sypnosis"
-                                        name='sypnosis'
-                                        placeholder="+ Sypnosis"
-                                        value={this.state.sypnosis}
-                                        onChange={this.onChange}
-                                    >
-                                    </input>
+                                    <pre>
+                                        <input
+                                            type="text"
+                                            id="sypnosis"
+                                            name='sypnosis'
+                                            placeholder="+ Sypnosis"
+                                            value={this.state.sypnosis}
+                                            onChange={this.onChange}
+                                        >
+                                        </input>
+                                    </pre>
                                 </div>
 
                                 <div>
-                                    <textarea id="content"
-                                        name='content'
-                                        placeholder="+ Content"
-                                        value={this.state.content}
-                                        onChange={this.onChange} cols="50" rows="10"></textarea>
+                                    <pre>
+                                        <textarea id="content"
+                                            name='content'
+                                            placeholder="+ Content"
+                                            value={this.state.content}
+                                            onChange={this.onChange} cols="50" rows="10">
+                                        </textarea>
+                                    </pre>
+
                                 </div>
 
                                 <div className='buttons'>
@@ -154,10 +162,10 @@ export class AddPost extends Component {
     }
 }
 
-const post_img = {
-    width: '100%',
-    marginBottom: '15px'
-}
+// const post_img = {
+//     width: '100%',
+//     marginBottom: '15px'
+// }
 //=========== creating propTypes ===========
 AddPost.propTypes = {
     AddPost: PropTypes.func

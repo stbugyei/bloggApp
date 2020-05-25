@@ -39,10 +39,10 @@ class App extends Component {
   //==========Function to editPost =======
 
   editPost = (filteredPost, id) => {
-    const singleArticles = this.state.articles.map((post) => {
+    const singleArticle = this.state.articles.map((post) => {
     return post.id === id ? filteredPost : post
     })
-    this.setState({articles: singleArticles})
+    this.setState({articles: singleArticle})
   }
 
 
